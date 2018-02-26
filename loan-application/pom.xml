@@ -6,7 +6,43 @@
   <artifactId>loan-application</artifactId>
   <version>1.0.0</version>
   <name>loan-application</name>
+  <packaging>kjar</packaging>
   <description>Loan Application Demo</description>
+
+    <dependencies>
+<!-- add this dependency if there are Model Classes present (created by Data Modeler in the business-central) -->
+        <dependency>
+            <groupId>org.kie</groupId>
+            <artifactId>kie-api</artifactId>
+            <version>${drools.version}</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.kie</groupId>
+                <artifactId>kie-maven-plugin</artifactId>
+                <version>${jbpm.version}</version>
+                <extensions>true</extensions>
+                <dependencies>
+                    <dependency>
+<!-- add this dependency if there are Processes located in the project-->
+                        <groupId>org.jbpm</groupId>
+                        <artifactId>jbpm-bpmn2</artifactId>
+                        <version>${jbpm.version}</version>
+                    </dependency>
+<!-- add this dependency if there are Decision tables located in the project-->
+                <dependency>
+                        <groupId>org.drools</groupId>
+                        <artifactId>drools-decisiontables</artifactId>
+                        <version>${drools.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>    
+    
+  <!--
   <dependencies>
     <dependency>
       <groupId>org.kie</groupId>
@@ -15,6 +51,8 @@
       <version>7.5.0.Final-redhat-3</version>
     </dependency>
   </dependencies>
+  -->
+    
   <repositories>
     <repository>
       <id>guvnor-m2-repo</id>
