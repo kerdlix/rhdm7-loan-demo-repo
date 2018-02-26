@@ -6,7 +6,7 @@
   <artifactId>loan-application</artifactId>
   <version>1.0.0</version>
   <name>loan-application</name>
-  <packaging>kjar</packaging>
+
   <description>Loan Application Demo</description>
 
     <properties>
